@@ -1,2 +1,3 @@
-# procon
-# procon
+## procon
+- factorizer : 素因数分解
+
