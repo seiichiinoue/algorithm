@@ -45,6 +45,7 @@ def dijkstra():
 
 		unfixed_nodes.remove(min_distance_node)
 
+		
 	min_route = list()
 	previous_node = node_num - 1
 	while previous_node != -1:
@@ -57,35 +58,3 @@ def dijkstra():
 	min_route = min_route[::-1]
 
 	return min_route
-
-
-
-print(dijkstra())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
