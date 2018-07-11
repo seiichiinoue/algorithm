@@ -81,29 +81,3 @@ def dijkstra(route_list=list, start_node=int):
 if __name__ == '__main__':
 	print(dijkstra(route_list=route_list, start_node=0))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
