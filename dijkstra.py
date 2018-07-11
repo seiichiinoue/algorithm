@@ -39,7 +39,6 @@ def dijkstra(route_list=list, start_node=int):
 	route_list = route_list  # グラフ
 	node_num = len(route_list)  # ノード数
 	start_node = start_node  # 始点となるノードのindex
-	end_node = 5
 
 	minimum_distances_from_startnode = [math.inf] * node_num  
 	minimum_distances_from_startnode[start_node] = 0  # 始点から各ノードまでの最短距離
