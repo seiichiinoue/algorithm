@@ -7,8 +7,8 @@ import math
 
 
 # グラフ構造を配列で表記; 初期化
-route_list = [[0, 5, 4, 2, 0, 0], [5, 0, 2, 0, 0, 6], [4, 2, 0, 3, 2, 0],
-              [2, 0, 3, 0, 6, 0], [0, 0, 2, 6, 0, 4], [0, 6, 0, 0, 4, 0]]
+route_list = [[0, 4, 5, 0, 2, 0, 0], [4, 0, 6, 4, 3, 0, 0], [5, 6, 0, 6, 0, 0, 10],
+              [0, 4, 6, 0, 6, 2, 6], [2, 3, 0, 6, 0, 9, 0], [0, 0, 0, 2, 9, 0, 3], [0, 0, 10, 6, 0, 3, 0]]
 
 
 # ルート探索
@@ -79,5 +79,7 @@ def dijkstra(route_list=list, start_node=int):
 
 
 if __name__ == '__main__':
-	print(dijkstra(route_list=route_list, start_node=0))
+	min_list = dijkstra(route_list=route_list, start_node=0)
 
+	for index, l in enumerate(min_list):
+		print("{}への最短経路: {}".format(index + 1, l))
