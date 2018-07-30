@@ -1,5 +1,3 @@
-## procon
-
 ## 素因数分解
 factorizer.py
 
