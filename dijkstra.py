@@ -38,7 +38,7 @@ def dijkstra(route_list=list, start_node=int):
     # 初期化
 	route_list = route_list  # グラフ
 	node_num = len(route_list)  # ノード数
-	start_node = start_node  # 始点となるノードのindex
+	start_node = start_node  # 始点
 
 	minimum_distances_from_startnode = [math.inf] * node_num  
 	minimum_distances_from_startnode[start_node] = 0  # 始点から各ノードまでの最短距離
@@ -47,10 +47,11 @@ def dijkstra(route_list=list, start_node=int):
 
 
 	while len(unfixed_nodes) != 0:  # 全ての最短経路が判明するまで
-		dist_temp = math.inf
+		dist_temp = math.inf # 仮の最短距離
 		min_distance_node = 0
 
 		# 各ノードまでの最短距離の更新
+		# dist_tempの更新
 		for node_index in unfixed_nodes:
 			if node_index == start_node:
 				dist_temp = 0
@@ -60,8 +61,10 @@ def dijkstra(route_list=list, start_node=int):
 				dist_temp = minimum_distances_from_startnode[node_index]
 				min_distance_node = node_index
 
+		# dist_tempが最小となるノードを選択
 		min_distance_node_edges = route_list[min_distance_node]
 
+		# そのノードのエッジから接続されているノードの最短距離の更新
 		for i, min_distance_node_edge in enumerate(min_distance_node_edges):
 			if min_distance_node_edge == 0:
 				continue
