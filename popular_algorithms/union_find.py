@@ -24,7 +24,6 @@ class UnionFind:
         Return:
             boolean: if able to marge, return True, else False
         """
-
         x, y = self.root(x), self.root(y)
         if x == y:
             return False
@@ -33,7 +32,6 @@ class UnionFind:
         self.par[x] += self.par[y]
         self.par[y] = x
         return True
-
 
 # -----------------------------------------------------
 # solution of atcoder typical contest 001 B: union find
@@ -58,7 +56,6 @@ if __name__ == '__main__':
 
 """
 sample input:
-
 8 9
 0 1 2
 0 3 2
@@ -69,4 +66,10 @@ sample input:
 0 4 2
 0 0 0
 1 0 0
+
+expected output:
+Yes
+No
+Yes
+Yes
 """
