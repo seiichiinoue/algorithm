@@ -9,6 +9,7 @@
 ### aribon
 - all_search: 全探索
 - greedy_search: 貪欲法
+- dynamic_programming: 動的計画法
 
 ### popular algorithms
 - factorizer
