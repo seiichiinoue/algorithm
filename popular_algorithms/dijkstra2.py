@@ -9,7 +9,7 @@ class Graph(object):
     
     def __len__(self):
         return len(self.graph)
-    
+        
     def add_edge(self, src, dst, weight=1):
         self.graph[src].append((dst, weight))
     
