@@ -1,4 +1,4 @@
-from functiools import reduce
+from functools import reduce
 
 def gcd(a,b):
     if b == 0:
