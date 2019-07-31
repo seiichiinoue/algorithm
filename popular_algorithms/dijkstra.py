@@ -1,90 +1,70 @@
+from collections import defaultdict
+from heapq import heappush, heappop
 
-# dijkstra algorithms
-# coding: utf-8
+class Graph(object):
+    """隣接リストによる有向グラフ"""
 
+    def __init__(self):
+        self.graph = defaultdict(list)
+    
+    def __len__(self):
+        return len(self.graph)
+        
+    def add_edge(self, src, dst, weight=1):
+        self.graph[src].append((dst, weight))
+    
+    def get_nodes(self):
+        return self.graph.keys()
+    
+class Dijkstra(object):
+    """ダイクストラ法"""
 
-import math
+    def __init__(self, graph, start):
+        # グラフ
+        self.g = graph.graph
+        # startノードからの最短距離
+        self.dist = defaultdict(lambda: float('inf'))
+        self.dist[start] = 0
+        # 最短経路での1つ前のノード
+        self.prev = defaultdict(lambda: None)
+        # startノードをQに入れる
+        self.Q = []
+        heappush(self.Q, (self.dist[start], start))
 
-
-# グラフ構造を配列で表記; 初期化
-route_list = [[0, 4, 5, 0, 2, 0, 0], [4, 0, 6, 4, 3, 0, 0], [5, 6, 0, 6, 0, 0, 10],
-              [0, 4, 6, 0, 6, 2, 6], [2, 3, 0, 6, 0, 9, 0], [0, 0, 0, 2, 9, 0, 3], [0, 0, 10, 6, 0, 3, 0]]
-
-
-# ルート探索
-def route(previous_fixed_nodes=list, start_node=int):
-    destinations = [i for i in range(len(previous_fixed_nodes))]
-    del destinations[start_node]
-    min_routes = list()
-    for destination in destinations:
-        min_route = list()
-        previous_node = destination
-
-        while previous_node != -1:
-            if previous_node !=0:
-                min_route.append(previous_node)
-            else:
-                min_route.append(previous_node)
-            previous_node = previous_fixed_nodes[previous_node]
-        min_route = min_route[::-1]
-        min_routes.append(min_route)
-
-    return min_routes
-
-
-
-# ダイクストラ法
-def dijkstra(route_list=list, start_node=int):
-    # 初期化
-    route_list = route_list  # グラフ
-    node_num = len(route_list)  # ノード数
-    start_node = start_node  # 始点
-
-    minimum_distances_from_startnode = [math.inf] * node_num  
-    minimum_distances_from_startnode[start_node] = 0  # 始点から各ノードまでの最短距離
-    unfixed_nodes = list(range(node_num))  # 未確定リスト
-    previous_fixed_nodes = [-1] * node_num  # 初期値はマイナスとして，各ノードにたどり着く最短経路において直前の確定したノードを格納する
-
-
-    while len(unfixed_nodes) != 0:  # 全ての最短経路が判明するまで
-        dist_temp = math.inf # 仮の最短距離
-        min_distance_node = 0
-
-        # 各ノードまでの最短距離の更新
-        # dist_tempの更新
-        for node_index in unfixed_nodes:
-            if node_index == start_node:
-                dist_temp = 0
-                min_distance_node = start_node
-
-            if dist_temp > minimum_distances_from_startnode[node_index]:
-                dist_temp = minimum_distances_from_startnode[node_index]
-                min_distance_node = node_index
-
-        # dist_tempが最小となるノードを選択
-        min_distance_node_edges = route_list[min_distance_node]
-
-        # そのノードのエッジから接続されているノードの最短距離の更新
-        for i, min_distance_node_edge in enumerate(min_distance_node_edges):
-            if min_distance_node_edge == 0:
+        while self.Q:
+            dist_u, u = heappop(self.Q)
+            if self.dist[u] < dist_u:
                 continue
+            for v, weight in self.g[u]:
+                alt = dist_u + weight
+                if self.dist[v] > alt:
+                    self.dist[v] = alt
+                    self.prev[v] = u
+                    heappush(self.Q, (alt, v))
+    
+    def shortest_dist(self, goal):
+        return self.dist[goal]
 
-            else:
-                if minimum_distances_from_startnode[i] > min_distance_node_edge + minimum_distances_from_startnode[min_distance_node]:
-                    minimum_distances_from_startnode[i] = min_distance_node_edge + minimum_distances_from_startnode[min_distance_node]
-                    previous_fixed_nodes[i] = min_distance_node
+    def shortest_path(self, goal):
+        path = []
+        node = goal
+        while node is not None:
+            path.append(node)
+            node = self.prev[node]
+        return path[::-1]
 
-        unfixed_nodes.remove(min_distance_node)
+def main():
+    inputs = [(0, 1, 5), (0, 2, 4), (0, 3, 2), (1, 2, 2), (1, 5, 6), (2, 3, 3),
+            (2, 4, 2), (3, 4, 6), (4, 5, 4)]
 
-    r = route(previous_fixed_nodes=previous_fixed_nodes, start_node=start_node)
+    g = Graph()
+    for src, dst, weight in inputs:
+        g.add_edge(src, dst, weight)
+        g.add_edge(dst, src, weight)
 
-    return r  # 各ノードへの最短経路のリストを返す
-
+    d = Dijkstra(g, 0)
+    print('最短経路: {}'.format(d.shortest_path(5)))
+    print('最短距離: {}'.format(d.shortest_dist(5)))
 
 if __name__ == '__main__':
-    min_list = dijkstra(route_list=route_list, start_node=0)
-
-    for index, l in enumerate(min_list):
-        print("{}への最短経路: {}".format(index + 1, l))
-
-
+    main()
