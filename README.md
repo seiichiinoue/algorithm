@@ -6,14 +6,26 @@
 - 蟻本を読み始めたのでそちらもまとめていきます．(2019.3.4)
 
 ## Contents
-### aribon
+
+### combinations
+- combinations: 組み合わせ計算
+
+### data structure
+- union find tree
+
+### dp
+- levenshtein: レーベンシュタイン距離
+- knapsack: ナップザック問題
+
+### graph
+- dijkstra: ダイクストラ法
+- warshall floyd: ワーシャルフロイド法
+
+### math
+- factorizer: 因数分解
+- gcds: 最大公約数，複数の整数の最大公約数
+
+### search
+
 - all_search: 全探索
 - greedy_search: 貪欲法
-- dynamic_programming: 動的計画法
-
-### popular algorithms
-- factorizer
-- dijkstra
-- combination
-- gcds
-- unionfind
