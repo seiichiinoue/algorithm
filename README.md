@@ -21,7 +21,7 @@
 - levenshtein: レーベンシュタイン距離
 - knapsack: ナップザック問題
 
-### graph
+### graph theory
 
 - dijkstra: ダイクストラ法
 - warshall floyd: ワーシャルフロイド法
