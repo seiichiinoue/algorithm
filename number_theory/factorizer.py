@@ -14,3 +14,4 @@ def factorize(n):
         fct.append((n, 1))
     return fct
 
+print(factorize(10))
