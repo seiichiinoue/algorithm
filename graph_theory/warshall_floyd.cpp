@@ -34,9 +34,9 @@ int main() {
     warshall_floyd(n);
     rep(i, n) {
         rep(j, n) {
-            cout << dp[i][j] << " ";
+            if (i != j && dp[i][j] != INF)
+            cout << "cost from " << i << " to " << j << ": " << dp[i][j] << endl;
         }
-        cout << endl;
     }
     return 0;
 }
