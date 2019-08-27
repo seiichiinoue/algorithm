@@ -13,7 +13,7 @@ def main():
     for i in range(w):
         x, y, z = map(int, input().split())
         d[x][y] = z
-        d[y][x] = z
+        # d[y][x] = z #有向グラフなら消す
     for i in range(n):
         d[i][i] = 0
     print(warshall_floyd(d, n))
