@@ -9,7 +9,7 @@ int main() {
         if (i==0) continue;
         vector<int> v;
         for (int j=0; j<n; ++j) {
-            if (i&(1<<j)) v.push_back(j+1);
+            if (i&(1<<j)) v.push_back(j);
         }
         c.push_back(v);
     }
