@@ -41,7 +41,7 @@ int main() {
     bellman_ford(n, 0);
 
     for (int i=1; i<n; ++i) {
-        if (dist[i != INF) {
+        if (dist[i] != INF) {
             cout << "cost from 0 to " << i << ": " << dist[i] << endl;
         }
     }
