@@ -43,3 +43,7 @@
 
 - all_search: 全探索
 - greedy_search: 貪欲法
+
+### others
+
+- swap: スワップ
