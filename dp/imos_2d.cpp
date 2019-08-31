@@ -30,7 +30,6 @@ int imos(const vector<Rectangle> &recs) {
     return res;
 }
 
-
 int main() {
     int N; cin >> N;
     vector<Rectangle> recs(N);
