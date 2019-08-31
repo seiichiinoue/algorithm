@@ -32,7 +32,7 @@
 
 ### number theory
 
-- factorizer: 因数分解
+- prime_factorizer: 素因数分解
 - gcds: 最大公約数，複数の整数の最大公約数
 - lcm: 最小公倍数
 - divisor: 約数列挙
