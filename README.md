@@ -36,6 +36,8 @@
 - gcds: 最大公約数，複数の整数の最大公約数
 - lcm: 最小公倍数
 - divisor: 約数列挙
+- is_prime: 素数判定
+- miller_rabin: ミラーラビン法; 高速な素数判定
 
 ### search
 
