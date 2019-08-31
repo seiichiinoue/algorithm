@@ -11,7 +11,7 @@
 
 ### combinations
 
-- combinations: 組み合わせ計算
+- bit: ビット全探索
 
 ### data structure
 
@@ -22,6 +22,7 @@
 - levenshtein: レーベンシュタイン距離
 - knapsack: ナップザック問題
 - imos: いもす法
+- imos_2d: 2次元のいもす法
 
 ### graph theory
 
@@ -34,6 +35,7 @@
 - factorizer: 因数分解
 - gcds: 最大公約数，複数の整数の最大公約数
 - lcm: 最小公倍数
+- divisor: 約数列挙
 
 ### search
 
