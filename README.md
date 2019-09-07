@@ -39,10 +39,11 @@
 - is_prime: 素数判定
 - miller_rabin: ミラーラビン法; 高速な素数判定
 
-### search
+### examples
 
 - all_search: 全探索
 - greedy_search: 貪欲法
+- shakutori: 尺取り法
 
 ### others
 
