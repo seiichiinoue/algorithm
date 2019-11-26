@@ -16,6 +16,7 @@
 ### data structure
 
 - union find tree
+- binary indexed tree
 
 ### dp
 
