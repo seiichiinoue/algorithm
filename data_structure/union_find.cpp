@@ -3,6 +3,7 @@
 using namespace std;
 
 struct UnionFind {
+    /* N: 0-indexed array size */
     vector<int> par;
     
     UnionFind(int N) : par(N) {
