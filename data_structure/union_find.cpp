@@ -5,9 +5,11 @@ using namespace std;
 struct UnionFind {
     /* N: 0-indexed array size */
     vector<int> par;
+    vector<int> _size;
     
-    UnionFind(int N) : par(N) {
+    UnionFind(int N) : par(N), _size(N) {
         rep(i, N) par[i] = i;
+        rep(i, N) _size[i] = 1;
     }
     
     int root(int x) {
@@ -19,13 +21,19 @@ struct UnionFind {
         int rx = root(x);
         int ry = root(y);
         if (rx==ry) return;
-        par[rx] = ry;
+        if (_size[rx] <= _size[ry]) swap(rx, ry);
+        _size[rx] += _size[ry];
+        par[ry] = rx;
     }
 
     bool same(int x, int y) {
         int rx = root(x);
         int ry = root(y);
         return rx == ry;
+    }
+
+    int size(int x) {
+        return _size[root(x)];
     }
 };
 
