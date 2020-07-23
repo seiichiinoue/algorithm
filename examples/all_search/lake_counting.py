@@ -33,8 +33,7 @@ field = [list(input()) for _ in range(N)]
 
 def dfs(x, y):  # 現在位置x,y
     # 現在地を.に変える
-    field[x][y] = '.'
-
+    field[x][y] = '.' 
     for dx in range(-1, 2, 1):
         for dy in range(-1, 2, 1):
             nx, ny = x + dx, y + dy
